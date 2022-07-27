@@ -1,0 +1,41 @@
+REVERSING AN ARRAY OF STRINGS BY TAKING INPUT FROM USER:-
+
+
+import java.util.*;
+class Main {
+  public static String[] myArray(String[] arr){
+    int i=0;
+    int j=arr.length-1;
+    while(i<=j){
+      String temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      i++;
+      j--;
+    }
+    return arr;
+  }
+  public static void main(String[] args) {
+    Scanner sc = new Scanner (System.in);
+    String answer = "answer";
+    String[] arr = new String[4];
+
+    System.out.println("Do you want to enter the names? (Yes/No)");
+    answer = sc.nextLine();
+
+    if("Yes".equalsIgnoreCase(answer)){
+      for(int k=0;k<arr.length;k++){
+        System.out.println("Enter the names: ");
+        arr[k] = sc.nextLine();
+      }
+      System.out.println("You entered: " + Arrays.toString(arr));
+      System.out.println("The reverse of the entered array is: " + Arrays.toString(myArray(arr)));
+    }
+    else if("No".equalsIgnoreCase(answer)){
+      System.out.println("Thanks for contacting us!!");
+    }
+    else {
+      System.out.println("Wrong input!!");
+    }
+  }
+}
